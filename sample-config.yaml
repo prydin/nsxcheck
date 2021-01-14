@@ -1,0 +1,9 @@
+vrops:
+  url: https://vrops.corp.local
+  username: admin
+  password: secret
+
+nsx:
+  url: https://nsx.corp.local
+  username: admin
+  password: secret
