@@ -58,17 +58,19 @@ class VRopsClient:
             }
         }
         result = self.post("/resources/query", json.dumps(query))
-        return json.loads(result.content)["resourceList"][0]["identifier"]  # TODO: Error handling!
+        if result.status_code != 200:
+            raise Exception("HTTP Error %d: %s" % (result.status_code, result.content))
+        return json.loads(result.content)["resourceList"][0]["identifier"]
 
 
     def resource_id_by_name(self, name):
         query = {
             "name": [ name ]
         }
-        print(json.dumps(query))
         result = self.post("/resources/query", json.dumps(query))
-        print(result.content)
-        return json.loads(result.content)["resourceList"][0]["identifier"]  # TODO: Error handling!
+        if result.status_code != 200:
+            raise Exception("HTTP Error %d: %s" % (result.status_code, result.content))
+        return json.loads(result.content)["resourceList"][0]["identifier"]
 
     def push_event(self, resource, message, event_type):
         event = {
@@ -78,5 +80,7 @@ class VRopsClient:
             "managedExternally": True
         }
         print("Sending event: " + json.dumps(event))
-        result = self.post("/events", json.dumps(event)) # TODO: Error handling
+        result = self.post("/events", json.dumps(event))
+        if result.status_code != 200:
+            raise Exception("HTTP Error %d: %s" % (result.status_code, result.content))
         print(result)

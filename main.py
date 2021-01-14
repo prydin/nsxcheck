@@ -62,6 +62,9 @@ def run():
 while True:
     try:
         run()
+    except KeyboardInterrupt:
+        print("Aborted by operator")
+        sys.exit(0)
     except Exception as e:
         print("Error occurred. Trying again in 60 seconds. Error: % s" % str(e))
         time.sleep(60)

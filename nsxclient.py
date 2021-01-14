@@ -16,5 +16,6 @@ class NSXClient:
     def get_edges(self):
         r = requests.get(url=self.url + "/api/4.0/edges", verify=False, headers=self.headers,
                          auth=self.auth)
-        print(r.content)
+        if r.status_code != 200:
+            raise Exception("HTTP Error %d: %s" % (r.status_code, r.content))
         return r.json()
