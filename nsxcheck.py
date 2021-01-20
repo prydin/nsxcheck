@@ -45,7 +45,7 @@ else:
     nsxUrl = args.nsxurl
     nsxUser = args.nsxuser
     nsxPassword = args.nsxpassword
-    vropsUrl = args.vropspassword
+    vropsUrl = args.vropsurl
     vropsUser = args.vropsuser
     vropsPassword = args.vropspassword
 

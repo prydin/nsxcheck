@@ -7,7 +7,7 @@ This simple script checks the status of NSX-V edges and reports any redeployment
 usage: nsxcheck.py [-h] [--config CONFIG] [--nsxurl NSXURL] [--nsxuser NSXUSER]
                [--nsxpassword NSXPASSWORD] [--vropsurl VROPSURL]
                [--vropsuser VROPSUSER] [--vropspassword VROPSPASSWORD]
-               [--forever FOREVER]
+               [--forever]
 
 ```
 
